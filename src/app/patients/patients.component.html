@@ -1,0 +1,85 @@
+<app-menu></app-menu>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+    Nuevo
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Paciente Nuevo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <input #nombre matInput placeholder="Nombre completo" value="">
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <input #documento matInput placeholder="Número de documento" value="">
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <input type="date" #fecha matInput placeholder="Fecha de cita" value="">
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <label for="inputState">Medico</label>
+                    <select #medic id="inputState" class="form-control">
+                      <option selected >Medico</option>
+                      <option *ngFor="let food of datas[0]">{{ food.name }}</option>
+                    </select>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="save_patient(nombre.value,
+          documento.value,
+          fecha.value,
+          medic.value)">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Documento</th>
+        <th scope="col">Fecha de cita</th>
+        <th scope="col">Doctor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of datas; let i = index; trackBy: trackByFn">
+        <th scope="row"> {{ item.name }} </th>
+        <td> {{ item.document }} </td>
+        <td> {{ item.calender }} </td>
+        <td> {{ item.medic }}</td>
+        <td>  <span class="glyphicon glyphicon-list-alt"></span> </td>
+        <td> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<router-outlet></router-outlet>

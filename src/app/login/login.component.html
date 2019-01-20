@@ -1,0 +1,60 @@
+
+  <!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+    <img width="200" alt="Angular Logo" src="https://cdn.icon-icons.com/icons2/588/PNG/512/shield_protection_firewall_insurance_health_medical_security_icon-icons.com_55337.png">
+    <h1>
+        <i class="fa fa-copyright" aria-hidden="true">{{ title }}</i>
+    </h1>
+      
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="Iniciar sesión">
+  
+          <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <input #user matInput placeholder="Usuario" value="">
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width">
+                  <input #password type="password" matInput placeholder="Contraseña" value="">
+                </mat-form-field>
+  
+              <div class="example-button-row">
+                  <button mat-raised-button color="primary" (click)="login(user.value, password.value)">Ingresar</button>
+              </div>
+            </form>
+  
+      </mat-tab>
+      <mat-tab label="Registro">
+          <form class="example-form">
+  
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Email" value="">
+                </mat-form-field>
+                <br>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Usuario" value="">
+              </mat-form-field>
+              <br>
+              <mat-form-field class="example-full-width">
+                  <input type="password" matInput placeholder="Contraseña" value="">
+                </mat-form-field>
+  
+              <div class="example-button-row">
+                  <button mat-raised-button color="primary">Registrar</button>
+                </div>
+                
+            </form> 
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  
+  
+  <div style="text-align:center">
+    <br>
+      <a>
+         <i class="fa fa-copyright" aria-hidden="true">Copy</i>
+      </a>
+    </div>
+  
+  <router-outlet></router-outlet>
